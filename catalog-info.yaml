@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dynamic-kingfisher-python-gitops
+  description: This is GitOps manifest for dynamic-kingfisher-python   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: dynamic-kingfisher-python
+    janus-idp.io/tekton: dynamic-kingfisher-python 
+    backstage.io/kubernetes-id: dynamic-kingfisher-python 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:dynamic-kingfisher-python
